@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phol</title>
+</head>
+<body>
+  <%- include('navbar',{sessions:sessions}) %>
+  <div style="color: black;">
+    <% Object.values(sessions.data).forEach((item) => { %>
+      <div style="border: 2px solid black;">
+        <p>name : <%= item.name %></p>
+        <p>user : <%= item.username %></p>
+        <p>phone : <%= item.phone %></p>
+        <p>pass : <%= item.password %></p>
+        <p>gmail: <%= item.gmail %></p>
+      </div>
+    <% }) %>
+  </ul>
+</body>
+</html>
