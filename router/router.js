@@ -3,7 +3,6 @@ const router = express.Router()
 
 const admin = require('firebase-admin');
 const serviceAccount = require('../mywebez-3f338-firebase-adminsdk-warup-6727451858.json');
-// const { render } = require('ejs');
 
 let datapass = {}
 admin.initializeApp({
@@ -23,9 +22,9 @@ let sessions = {
 router.get('/',async (req,res)=>{
   views = await db.collection('views').get()
   view = views.docs.map(view => view.data())
-  sessions.views = view[0].views + 1
-  await db.collection('views').add({views:sessions.views})
-
+  let viesupdate = db.collection('views').doc('FSIByKHEwhdFEPxC7CEz')
+  sessions.views = view[0].view + 1
+  await viesupdate.update({view:sessions.views})
     if(req.cookies.login){
       sessions.data = data
       sessions.name = datapass[req.cookies.username].name
