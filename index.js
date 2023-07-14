@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
 app.set('views',path.join(__dirname,'views'))
-app.set('view engin','ejs')
+app.set('view engine','ejs')
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
