@@ -14,7 +14,6 @@
 
 <body>
   <%- include('navbar',{sessions:sessions}) %>
-    <!-- <img class="img-top" src="/img/tt.png" alt=""> -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -33,6 +32,14 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-</body>
+
+    <div class="container border-top my-3">
+      <div class="my-3 input-group shadow">
+        <input class="form-control" type="text" placeholder="ใส่ข้อมูลที่ต้องการหา...">
+        <button class="btn btn-primary">ค้าหา</button>
+      </div>
+    </div>
+    <%- include('nav_button', {sessions:sessions})%>
+  </body>
 
 </html>
