@@ -1,0 +1,24 @@
+@media (min-width:0px) and (max-width:425px) {
+    .navbuttom{
+        display: block;
+        justify-content: space-between;
+    }
+    .box{
+        margin-bottom: 20%;
+        text-align: center;
+    }
+    
+}
+@media (min-width: 426px) and (max-width: 4300px){
+    .navbuttom{
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .box{
+        text-align: center;
+        justify-content: center;
+        justify-items: center;
+        width: 500px;
+    }
+}
