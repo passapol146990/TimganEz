@@ -22,23 +22,19 @@ let sessions = {
   views:''
 }
 router.get('/',async (req,res)=>{
-  snapshot = await db.collection('data').get();
-  data = snapshot.docs.map(doc => doc.data());
-  data.forEach((e)=>{
-    datapass[e.username] = {password:e.password,name:e.name}
-  })
-
-
-  views = await db.collection('views').get()
-  view = views.docs.map(view => view.data())
-  sessions.views = view[0].view
-  await db.collection('views').doc('flh2FpufkN7oSjsEmTVU').update({view:view[0].view+1})
+  let views = await db.collection('views').get()
+  let view = views.docs.map(view => view.data())
+  view = view[0].view + 1
+  await db.collection('views').doc('flh2FpufkN7oSjsEmTVU').update({view:view})
+  // console.log(view)
+  sessions.views = view
+  // sessions.login = true
   // await db.collection('views').add({views:sessions.views})
-  // console.log(view,view[0].view)
+  // console.log(await db.collection('views').doc('flh2FpufkN7oSjsEmTVU'))
   if(sessions.login && sessions.username !== undefined){
     // sessions.data = data
     sessions.name = datapass[sessions.username].name
-    sessions.username = sessions.username
+    sessions.username = '@'+sessions.username
     sessions.reg_show = '<p class="text-success">เข้าสู่ระบบเรียบร้อย</p>'
     sessions.inout = '<a class="btn btn-outline-danger" href="/logout">ออกจากระบบ</a>'
   }else{

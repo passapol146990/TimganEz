@@ -1,3 +1,7 @@
+<head>
+  <link rel="icon" href="/img/ez.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/ez.ico">
+</head>
 <link rel="stylesheet" href="/css/css.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -9,15 +13,21 @@
       </a>
       <a href="javascript:void(0)" class="closebtn close" onclick="closeNav()">×</a>
   </div>
-  <hr class="text-white">
+  <!-- <hr class="text-white"> -->
+  <div class="showuser border-top border-bottom">
+    <div style="display: flex;">Name : 
+      <div style="display: block;">
+        <p class="name-show"><%= sessions.name %></p>
+        <p class="username-show"><%= sessions.username %></p>
+        <% if(sessions.username !== ''){ %>
+          <a class="btn btn-outline-light form-control mb-2" href="#">แก้ไขโปรไฟล์</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
   <div class="p-3">
     <a class="btn btn-outline-light form-control mb-2" href="/">หน้าหลัก</a>
-    <a class="btn btn-outline-light form-control mb-2" href="/">ผลงาน</a>
-    <a class="btn btn-outline-light form-control mb-2" href="/">ติดต่อ</a>
-  </div>
-  <div class="showuser border-top border-bottom">
-    <p>Name : <%= sessions.name %></p>
-    <p>Username : <%= sessions.username %></p>
+    <a class="btn btn-outline-light form-control mb-2" href="#">ผลงาน</a>
   </div>
   <div class="text-center p-3">
       <%- sessions.inout %>
@@ -25,27 +35,37 @@
   <div class="mt-2 text-center p-3 text-white">
     <%- sessions.reg_show %>
   </div>
-  <div class="text-center">
-    <p class="text-white">passapol@passapol</p>
+  <div class="text-center bg-success" style="position: relative;top: 25%;">
+    <p class="text-white">ติดต่อ @passapol.sutatam@gmail.com</p>
   </div>
 </div>
 
 <nav class="skicky-top p-1 shadow">
   <div class="d-flex justify-content-between">
-    <a class="btn btn-light" href="#" onclick="openNav()">เปิดเมนู</a>
+    <a class="btn" href="#" onclick="openNav()">
+    <div style="display: flex;justify-content: center;align-items: center;">
+      <img style="width: 30px;height: 30px;" src="/img/Menu_icon_icon-icons.com_71858.png" >
+      ทีมงานez
+    </div>
+    </a>
     <% if(sessions.name != ''){ %>
-      <a href="/" class="btn btn-dark">คุณ : <%= sessions.name %></a>
+      <a href="/logout" class="btn btn-danger">ออกจากระบบคุณ : <%= sessions.name %></a>
+    <% }else{ %>
+      <div>
+        <a href="/loginform" class="btn btn-primary">เข้าสู่ระบบ</a>
+        <a href="/regform" class="btn btn-outline-dark">สร้างบัญชี</a>
+      </div>
     <% } %>
   </div>
 </nav>
 <script>
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    // document.getElementById("main").style.marginLeft = "250px";
 }
 
 function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    // document.getElementById("main").style.marginLeft = "0";
 }
 </script>
