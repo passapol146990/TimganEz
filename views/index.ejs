@@ -12,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
+    <script type="module" src="/script/search.js"></script>
 </head>
 
 <body>
@@ -37,17 +38,22 @@
 
     <div class="container border-top my-3">
       <div class="my-3 input-group shadow">
-        <input class="form-control" type="text" placeholder="ใส่ข้อมูลที่ต้องการหา...">
+        <input id="search" class="form-control" type="text" placeholder="ใส่ข้อมูลที่ต้องการหา...">
         <button class="btn btn-primary">ค้าหา</button>
       </div>
       <hr>
-      <div>
-        <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fsumplotgrapg.netlify.app%2F%3Ffbclid%3DIwAR3Fb1j2dhnLVSBtDVPB7RyKRpI3duZx2PFfeX_p2iqt2U7jASoEZjOTzzk&h=AT3jm2zDyk8cnnLG0jK0sA86XbIkX0WhHxlqDcst_uhHt4DEhYqUw4YuqP8XspNQAC9GHUCWfCCzKfqPuOj36weWCbPSCQS6A3uRqW1uXQiCywHl_cYXgBSIWhbfPQEhWxa8&__tn__=-UK-R&c[0]=AT2bOpsuL5AOttV_u16NPKRASRZHFxP-2f7Ocs6CWXM1oNw7_iB7e6ykHRwkABy5fyeZzoW6stY-frjXDbQWi4C2N5ualbl0ZElAZh98jj95qEQ7MPHfjwDr7Ja3IRbU2Y8P63Ha_sLA8wwbhc3wtisvAA">
-          <div>
-            <h3>ทดสอบระบบ</h3>
-            <img src="https://l.facebook.com/l.php?u=https%3A%2F%2Fsumplotgrapg.netlify.app%2F%3Ffbclid%3DIwAR3Fb1j2dhnLVSBtDVPB7RyKRpI3duZx2PFfeX_p2iqt2U7jASoEZjOTzzk&h=AT3jm2zDyk8cnnLG0jK0sA86XbIkX0WhHxlqDcst_uhHt4DEhYqUw4YuqP8XspNQAC9GHUCWfCCzKfqPuOj36weWCbPSCQS6A3uRqW1uXQiCywHl_cYXgBSIWhbfPQEhWxa8&__tn__=-UK-R&c[0]=AT2bOpsuL5AOttV_u16NPKRASRZHFxP-2f7Ocs6CWXM1oNw7_iB7e6ykHRwkABy5fyeZzoW6stY-frjXDbQWi4C2N5ualbl0ZElAZh98jj95qEQ7MPHfjwDr7Ja3IRbU2Y8P63Ha_sLA8wwbhc3wtisvAA">
-          </div>
-        </a>
+      <div id="shadw-ob" class="text-center">
+        <% if(sessions.dataAPI){ %>
+          <% sessions.dataAPI.forEach(e=>{ %>
+            <div id=<%= e.name %>>
+              <p><%= e.name %></p>
+              <p><%= e.age %></p>
+              <p><%= e.number %></p>
+            </div>
+          <% }) %>
+        <% }else { %>
+          <h2>ยังไม่มีเนื้อหา</h2>
+        <% } %>
       </div>
     </div>
     <%- include('nav_button', {sessions:sessions})%>

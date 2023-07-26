@@ -19,9 +19,16 @@ let sessions = {
   user1:'',
   inout:'',
   reg_show:'',
-  views:''
+  views:'',
+  dataAPI:{}
 }
 router.get('/',async (req,res)=>{
+  await fetch('https://api1.pholdatap.repl.co/data')
+  .then(response=>response.json())
+  .then(data=>{
+    sessions.dataAPI = data;
+  })
+
   let views = await db.collection('views').get()
   let view = views.docs.map(view => view.data())
   view = view[0].view + 1
