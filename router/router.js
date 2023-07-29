@@ -23,12 +23,11 @@ let sessions = {
   dataAPI:[]
 }
 router.get('/',async (req,res)=>{
-  await fetch('apiwebphol.pholdatap.repl.co')
-  // .then(response=>response.json())
-  // .then(data=>{
-  //   sessions.dataAPI = data;
-  // })
-
+  await fetch('https://api1.pholdatap.repl.co/data')
+  .then(response=>response.json())
+  .then(data=>{
+    sessions.dataAPI = data;
+  })
   // let views = await db.collection('views').get()
   // let view = views.docs.map(view => view.data())
   // view = view[0].view + 1
