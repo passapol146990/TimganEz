@@ -23,10 +23,18 @@ let sessions = {
   dataAPI:[]
 }
 router.get('/',async (req,res)=>{
-  await fetch('https://api1.pholdatap.repl.co/data')
+  await fetch('https://ez-api-olive.vercel.app/data')
   .then(response=>response.json())
   .then(data=>{
-    sessions.dataAPI = data;
+    // console.log(111,data)
+    let eid= []
+    data.forEach(element => {
+      eid.push(element)
+      element['eid'] =  element['title'].replace(/\s+/g, '').toLowerCase()
+      // console.log()
+    });
+    sessions.dataAPI = eid;
+    console.log(eid)
   })
   // let views = await db.collection('views').get()
   // let view = views.docs.map(view => view.data())
