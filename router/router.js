@@ -34,13 +34,15 @@ router.get('/',async (req,res)=>{
       // console.log()
     });
     sessions.dataAPI = eid;
-    console.log(eid)
+    // console.log(eid)
   })
-  // let views = await db.collection('views').get()
-  // let view = views.docs.map(view => view.data())
-  // view = view[0].view + 1
-  // await db.collection('views').doc('flh2FpufkN7oSjsEmTVU').update({view:view})
-  // sessions.views = view
+  let views = await db.collection('views').get()
+  let view = views.docs.map(view => view.data())
+  view = view[0].view + 1
+  await db.collection('views').doc('flh2FpufkN7oSjsEmTVU').update({view:view})
+  sessions.views = view
+
+  console.log(sessions.views)
   res.render('index.ejs',{sessions:sessions})
 })
 
