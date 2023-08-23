@@ -4,7 +4,6 @@ const router = express.Router()
 const admin = require('firebase-admin');
 const serviceAccount = require('../mywebez-3f338-firebase-adminsdk-warup-6727451858.json');
 
-let datapass = {}
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
@@ -31,10 +30,8 @@ router.get('/',async (req,res)=>{
     data.forEach(element => {
       eid.push(element)
       element['eid'] =  element['title'].replace(/\s+/g, '').toLowerCase()
-      // console.log()
     });
     sessions.dataAPI = eid;
-    // console.log(eid)
   })
   let views = await db.collection('views').get()
   let view = views.docs.map(view => view.data())

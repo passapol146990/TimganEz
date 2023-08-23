@@ -50,10 +50,10 @@
         </div>
       </center>
       <hr>
-      <div id="div_item" class="text-center row p-3" style="justify-content: center;">
+      <div id="div_item" class="text-center">
         <% if(sessions.dataAPI){ %>
           <% sessions.dataAPI.forEach(e=>{  %>
-            <div class="mx-4 col-sm-5 col-lg-3 bg-success text-white rounded p-3 mt-5" id="<%= e.eid %>" >
+            <div class="bg-success text-white rounded p-3 mt-5" id="<%= e.eid %>" >
               <h2><%= e.title %></h2>
               <a href="<%= e.url %>" class=" btn btn-outline-light"><%= e.url %></a>
               <p><%= e.description %></p>
