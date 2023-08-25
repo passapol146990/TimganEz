@@ -22,7 +22,7 @@ let sessions = {
   dataAPI:[]
 }
 router.get('/',async (req,res)=>{
-  await fetch('https://ez-api-olive.vercel.app/data')
+  await fetch('https://ez-api-olive.vercel.app/data/myweb')
   .then(response=>response.json())
   .then(data=>{
     // console.log(111,data)
