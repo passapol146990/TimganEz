@@ -43,4 +43,8 @@ router.get('/',async (req,res)=>{
   res.render('index.ejs',{sessions:sessions})
 })
 
+
+router.get('/ProBlem_Solving_C_Language',(req,res)=>{
+  res.render('ProBlem_Solving_C_Language.ejs',{sessions:0})
+})
 module.exports = router
