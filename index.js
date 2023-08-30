@@ -12,7 +12,6 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({extended:false}))
 app.use(router)
 app.use(express.static(path.join(__dirname,'/pubic')))
-
 app.listen(8080,()=>{
     console.log('start web')
 })
