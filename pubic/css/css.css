@@ -101,3 +101,10 @@ padding: 16px;
         height: auto;
     }
 }
+
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}

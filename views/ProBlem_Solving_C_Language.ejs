@@ -1,65 +1,64 @@
 <%- include('navbar',{sessions:sessions}) %>
-<div class="bg-dark text-white">
-    <div class="p-3 border">
-        <p>โจทย์ที่ 1: คำนวณเกรด
-            ให้นักเรียนเขียนโปรแกรมเพื่อคำนวณเกรดของนักเรียนจากคะแนนที่ได้รับ โดยให้ใช้เกณฑ์ดังนี้:
-            คะแนน 90 ขึ้นไป: เกรด A
-            คะแนน 80 - 89: เกรด B
-            คะแนน 70 - 79: เกรด C
-            คะแนน 60 - 69: เกรด D
-            คะแนนต่ำกว่า 60: เกรด F
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 2: สูตรคูณแม่ 2-12
-            เขียนโปรแกรมเพื่อแสดงสูตรคูณแม่ตั้งแต่ 2 ถึง 12 โดยใช้ลูป for หรือ while.</p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 3: การหาผลรวมและค่าเฉลี่ย
-            เขียนโปรแกรมเพื่อรับจำนวนเต็มบวกจากผู้ใช้จนกว่าผู้ใช้จะป้อนค่า 0 และแสดงผลรวมและค่าเฉลี่ยของจำนวนที่ผู้ใช้ป้อนมา.
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 4: การหาจำนวนเลขคู่และเลขคี่
+<style>
+    .code-container {
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    position: relative;
+    color: #00ff00; /* Green text color */
+  }
 
-            เขียนโปรแกรมที่รับจำนวนเต็มบวกจากผู้ใช้ จนกว่าผู้ใช้จะป้อนค่า 0 และนับจำนวนเลขคู่และเลขคี่ที่ผู้ใช้ป้อนมา
-        </p>
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+<body>
+    <div class="bg-dark text-white">
+        <% for(var i=0;i < Bam.length;i++ ){%>
+        <button onclick="openAnswer('btn'<%= i %>)" class="p-3 btn btn-outline-info shadow mt-2 w-100">
+            <div>
+                <p><%= Bam[i] %></p>
+            </div>
+        </button>
+        <div class="code-container">
+            <pre>
+    <%= ss[0] %>
+            </pre>
+            <button class="copy-button" id="copy1" onclick="copyCode(1)">คัดลอกโค้ด</button>
+          </div>
+        <% } %>
+        <center class="p-5 "><a target="_blank" class="btn text-white" href="https://chat.openai.com/">เฉลยให้พิมพ์หาใน Chat GPT</a></center>
     </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 5: การคำนวณค่าซ้ำหลายครั้ง (Looping)
 
-            เขียนโปรแกรมที่ให้ผู้ใช้ป้อนคะแนนของนักเรียนหลายคน จากนั้นโปรแกรมควรจะคำนวณและแสดงค่าเฉลี่ยของคะแนนทั้งหมด
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 6: การหาตัวเลขที่มากที่สุด
 
-            เขียนโปรแกรมที่ให้ผู้ใช้ป้อนตัวเลขจำนวนเต็มบวกตามต้องการ และโปรแกรมควรแสดงตัวเลขที่มากที่สุดที่ผู้ใช้ป้อนมา
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 7: การสร้างรูปสามเหลี่ยมด้วยเครื่องหมาย *
+  <script>
+    function openAnswer(id){
+        let btn = document.getElementById('btn'+id);
+        btn.addEventListener('click',()=>{
 
-            เขียนโปรแกรมที่ให้ผู้ใช้ป้อนความสูงของรูปสามเหลี่ยมแล้วให้โปรแกรมแสดงรูปสามเหลี่ยมที่มีความสูงตามที่ผู้ใช้ป้อนมา โดยใช้เครื่องหมาย * ในการวาดรูป
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 8: การหาจำนวนเลขซ้ำ
+        })
+    }
+    function copyCode(id) {
+      const codeContainer = document.querySelector('.code-container');
+      const codeText = codeContainer.querySelector('pre').textContent;
 
-            เขียนโปรแกรมที่ให้ผู้ใช้ป้อนจำนวนเต็มบวกตามต้องการ และโปรแกรมควรนับและแสดงจำนวนของตัวเลขที่ป้อนมาซ้ำกัน
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์ที่ 9: การบวกเมทริกซ์
-
-            เขียนโปรแกรมที่รับข้อมูลเมทริกซ์ 2 มิติขนาดเท่ากันจากผู้ใช้ แล้วโปรแกรมควรทำการบวกเมทริกซ์เหล่านี้และแสดงผลลัพธ์
-        </p>
-    </div>
-    <div class="p-3 border">
-        <p>โจทย์: การหาตัวเลขเลขคู่ระหว่าง 1 ถึง n
-
-            เขียนโปรแกรมที่รับจำนวนเต็มบวก n จากผู้ใช้ แล้วแสดงตัวเลขที่เป็นเลขคู่ตั้งแต่ 1 ถึง n
-        </p>
-    </div>
-    <center class="p-5 "><a target="_blank" class="btn text-white" href="https://chat.openai.com/">เฉลยให้พิมพ์หาใน Chat GPT</a></center>
-</div>
+      const textarea = document.createElement('textarea');
+      textarea.value = codeText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      const btn = document.getElementById('copy'+id)
+      btn.innerText = "คัดลอกสำเร็จ"}
+  </script>  
+</body>
