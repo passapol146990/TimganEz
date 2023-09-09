@@ -17,6 +17,12 @@
       .block{
         display: block;
       }
+      @media (min-width: 426px) and (max-width: 4300px){ 
+        .img{
+          width: 50%;
+        }
+      }
+      
     </style>
 </head>
 <body>
@@ -29,7 +35,7 @@
             </div>
         </button>
         <div id="answer<%= i %>" class="code-container none">
-          <img class="w-100" src="/img/problemSolving/<%= i+1 %>.png" alt="problemSolving">
+          <img class="img" src="/img/problemSolving/<%= i+1 %>.png" alt="problemSolving">
           </div>
         <% } %>
     </div>
