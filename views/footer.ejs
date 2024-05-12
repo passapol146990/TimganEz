@@ -1,0 +1,39 @@
+<div id="contactme" class="border-top my-5">
+    <div class="navbuttom h-25">
+        <div class="box">
+            <div><p>ช่องทางติดต่อ</p></div>
+            <div class="">
+                <a href="https://www.facebook.com/timganez/" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/icon/icons8-facebook-48.png">
+                </a>
+                <a href="https://github.com/passapol146990" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/icon/icons8-github-48.png">
+                </a>
+                <a href="mailto:passapol.sutatam@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/icon/icons8-gmail-48.png">
+                </a>
+                <a href="https://www.youtube.com/@pholtimganez7683" target="_blank" rel="noopener noreferrer">
+                    <img src="/img/icon/icons8-youtube-48.png">
+                </a>
+            </div>
+        </div>
+        <div class="box">
+            <h5><b>ยอดผู้เข้าชม</b></h5>
+            <div class="">
+                <h4 style="display: block;text-decoration:underline" class="mt-2"><b id="view"></b></h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    async function fetchview(){
+        const view = document.getElementById("view")
+        const url = view.textContent
+        if(url.toString().length<20){return}
+        view.innerText = "";
+        const res = await fetch(`${url}?system=view`);
+        const res_data = await res.json();
+        view.innerText = res_data.data;
+    }
+    // fetchview()
+</script>
