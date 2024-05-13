@@ -35,7 +35,6 @@
       box_show_website.innerHTML = "";
       const datas = await fetch("<%= API_URI %>"+"?path=get-main")
       const res = await datas.json();
-      console.log(res)
       if(res.status==200){
         for(let index=0;index<res.data.length; index++){
           const set_website = `
@@ -51,5 +50,13 @@
       }
     }
     setDataMain()
+    async function setView(){
+      await fetch("<%= API_URI %>"+"?path=add-view");
+      const getView = await fetch("<%= API_URI %>"+"?path=get-view");
+      const resView = await getView.json();
+      const Eview = document.getElementById("view")
+      Eview.innerText = resView.view;
+    }
+    setView()
   </script>
 </html>

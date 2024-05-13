@@ -25,15 +25,3 @@
         </div>
     </div>
 </div>
-<script>
-    async function fetchview(){
-        const view = document.getElementById("view")
-        const url = view.textContent
-        if(url.toString().length<20){return}
-        view.innerText = "";
-        const res = await fetch(`${url}?system=view`);
-        const res_data = await res.json();
-        view.innerText = res_data.data;
-    }
-    // fetchview()
-</script>
